@@ -74,13 +74,13 @@ async def atendimento(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
                 await update.message.reply_text(mensagem_api)
         except httpx.RequestError as e:
             logging.warning(f"Erro ao conectar com a API Spring Boot: {e}")
-            await update.message.reply_text(f"Erro ao conectar com a API Spring Boot: {e}")
+            await update.message.reply_text("Não consegui entender muito bem sua mensagem")
         except httpx.HTTPStatusError as e:
             logging.warning(f"Erro na API call({requestPayLoad}) (status {e.response.status_code}): {e.response.text}") # Removed data from here
-            await update.message.reply_text(f"Erro na API (status {e.response.status_code}): {e.response.text}")
+            await update.message.reply_text("Não consegui entender muito bem sua mensagem")
         except Exception as e:
             logging.warning(f"Erro ao conectar com a API Spring Boot: {e}")
-            await update.message.reply_text(f"Ocorreu um erro inesperado: {e}")
+            await update.message.reply_text("Não consegui entender muito bem sua mensagem")
     else: 
         logging.error("Não consegui processar a messagem")
         await update.message.reply_text("Não consegui entender essa mensagem.")
