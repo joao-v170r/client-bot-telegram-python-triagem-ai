@@ -1,7 +1,9 @@
-# Documentação do Serviço: API Python para Bot Telegram de Triagem
+# Triagem Inteligente SUS com IA
 
 ## Visão Geral
-Este serviço opera um bot do Telegram desenvolvido em Python para realizar triagem de usuários, integrando-se a uma API Spring Boot e armazenando dados em um banco MongoDB. O bot recebe mensagens dos usuários, envia para a API de triagem, recebe uma resposta desta API e a encaminha de volta para o usuário, e armazena dados relevantes das conversas para associar uma conversa a um atendimento na API de triagem. 
+Este serviço opera um bot do Telegram desenvolvido em Python para realizar triagem de usuários, integrando-se a uma API do Telegram e outra API de triagem em Spring Boot e armazenando dados em um banco MongoDB. O bot recebe mensagens dos usuários, envia para a API de triagem, recebe uma resposta desta API e a encaminha de volta para o usuário, e armazena dados relevantes das conversas para associar uma conversa a um atendimento na API de triagem. 
+
+A API de triagem pode ser consultada em: `https://github.com/joao-v170r/client-bot-telegram-python-triagem-ai`.
 
 ## Estrutura do Projeto
 - `Application.py`: Ponto de entrada do bot. Configura comandos, handlers e inicializa o bot Telegram.
@@ -38,9 +40,9 @@ pip install python-telegram-bot pymongo httpx python-dotenv
 python Application.py
 ```
 
-## Integração com API Externa
+## Integrações com APIs externas
 - O serviço utiliza API do Telegram para receber as mensagens de uma conversa com o bot e enviar como resposta as mensagens da API de triagem.
-- O serviço envia mensagens para a API de triagem em Spring Boot no endpoint `/realizar-atendimento`. Esta API pode ser consultada em: `https://github.com/joao-v170r/client-bot-telegram-python-triagem-ai`.
+- O serviço envia mensagens para a API de triagem no endpoint `/realizar-atendimento`.
 - Espera-se que a API retorne uma resposta com os campos `mensagem` e `idAtendimento`.
 
 ## Estrutura dos Dados no MongoDB
